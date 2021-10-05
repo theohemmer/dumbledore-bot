@@ -1,0 +1,196 @@
+@font-face {
+    font-family: "HP";
+    src: url("./HARRYP__.TTF") format("truetype")
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    z-index: 1;
+}
+
+html, body {
+    margin: 0;
+    z-index: -1;
+    background-color: #0a0744;
+}
+
+.equipe {
+    width: 100%;
+    height: 25%;
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+    vertical-align: center;
+    position: absolute;
+    transition: top 2s;
+}
+
+.equipe .image {
+    float: left;
+}
+
+.equipe .name {
+    position: relative;
+    font-family: 'HP';
+    font-size: 5vh;
+    margin-top: 8vh;
+    margin-left: 5vh;
+    float: left;
+    width: 6vw;
+}
+
+.equipe .name h1 {
+    margin: 0;
+}
+
+.equipe .image img {
+    height: 80%;
+    margin-top: 3%;
+    margin-left: 30vw;
+    margin-bottom: 0%;
+    position: relative;
+}
+
+.equipe .progressbar {
+    display: block;
+    z-index: 0;
+    width: 70vw;
+    background-color: white;
+    position: absolute;
+    height: 25vh;
+    top: 0px;
+    left: 0px;
+    transition: width 2s;
+}
+
+#gryfondor {
+    top: 0vh;
+}
+
+#serpentar {
+    top: 25vh;
+}
+
+#poufsouffle {
+    top: 50vh;
+}
+
+#serdaigle {
+    top: 75vh;
+}
+
+#gryfondor .progressbar {
+    width: 0vw;
+    background-color: #a40c09;
+}
+
+#serpentar .progressbar {
+    width: 0vw;
+    background-color: #0d590b;
+}
+
+#poufsouffle .progressbar {
+    width: 0vw;
+    background-color: #b58a07;
+}
+
+#serdaigle .progressbar {
+    width: 0vw;
+    background-color: #026a88;
+}
+
+.equipe .point {
+    /*display: inline-block;*/
+    margin-left: 45vw;
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    display: table;
+    position: relative;
+}
+
+.equipe .point h1 {
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 20vh;
+    font-family: 'HP';
+}
+
+.equipe .point, .equipe .name {
+    color: #f1f1f1;
+}
+/*
+#gryfondor .name {
+    top: 0vh;
+}
+
+#serpentar .name {
+    top: 25vh;
+}
+
+#poufsouffle .name {
+    top: 50vh;
+}
+
+#serdaigle .name {
+    top: 75vh;
+}
+*/
+.notif * {
+    z-index: 100;
+}
+
+.notif {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #f1f1f1;
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    transition: visibility 0.3s, opacity 0.3s linear;
+}
+
+.notif .notif_wrapper {
+    width: 60%;
+    height: 60%;
+    border: 1mm solid #f1f1f1;
+    border-radius: 5mm;
+    background-color: #0a0744;
+    margin: auto;
+    display: inline-block;
+    text-align: center;
+}
+
+.notif h1, .notif h2 {
+    margin: 0;
+    margin-top: 5mm;
+    margin-bottom: 5mm;
+    font-family: 'Roboto', sans-serif;
+}
+
+.notif h1 {
+    font-size: 15mm;
+}
+
+.notif h2 {
+    font-size: 10mm;
+}
+
+.notif h1.team_name {
+    font-family: 'HP';
+}
+
+.notif img {
+    height: 50%;
+}
