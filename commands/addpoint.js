@@ -13,12 +13,12 @@ module.exports = class BuildInfoCommand extends Command {
     run(args, message)
     {
         if (args.length >= 5) {
-            team = args[2];
+            var team = args[2];
             team = team.toLowerCase();
-            if (team != "red" || team != "yellow" || team != "green" || team != "blue"
-            || team != "rouge" || team != "jaune" || team != "verte" || team != "bleu"
-            || team != "gryffondor" || team != "poufsouffle" || team != "serpentard" || team != "serdaigle"
-            || team != "gryffindor" || team != "hufflepuff" || team != "slytherin" || team != "ravenclaw") {
+            if (team != "red" && team != "yellow" && team != "green" && team != "blue"
+            && team != "rouge" && team != "jaune" && team != "verte" && team != "bleu"
+            && team != "gryffondor" && team != "poufsouffle" && team != "serpentard" && team != "serdaigle"
+            && team != "gryffindor" && team != "hufflepuff" && team != "slytherin" && team != "ravenclaw") {
                 const embed_wait = new MessageEmbed()
                     .setTitle(`The team is invalid, possible value are: \`red, rouge, gryffondor, gryffindor\`, \`yellow, jaune, poufsouffle, hufflepuff\`, \`green, verte, serpentard, slytherin\`, \`blue, bleu, serdaigle, ravenclaw\``)
                     .setColor(0xff0000)
@@ -33,13 +33,13 @@ module.exports = class BuildInfoCommand extends Command {
                     .setFooter(this.client.footer);
                 message.channel.send(embed_wait);
             }
-            reason = message.content.substring(message.content.indexOf(args[3]) + args[3].length);
+            var reason = message.content.substring(message.content.indexOf(args[3]) + args[3].length);
             const embed_wait = new MessageEmbed()
                 .setTitle(`Added ${point} to team ${team}.`)
-                .setColor(0xff6600)
+                .setColor(0x00ff00)
                 .setFooter(this.client.footer);
             message.channel.send(embed_wait);
-            client.addPoint(team, point, reason);
+            this.client.addPoint(team, point, reason);
         }
     }
 

@@ -27,7 +27,6 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (!message.guild) return;
 
     if (message.content.startsWith('/db')) {
         const args = message.content.split(" ");
@@ -36,7 +35,6 @@ client.on('message', message => {
 
         if (command !== undefined) {
             try {
-                console.log (command);
                 command.run(args, message);
             } catch (err) {console.error(err);}
         }
@@ -84,11 +82,6 @@ webapp.get('/notif', (req, res) => {
     res.setHeader('content-type', 'application/json');
     res.send(json);
 });
-
-client.addPoint("blue", 20, "Ils sont beau :)");
-client.addPoint("yellow", 15, "Ils sont beau :)");
-client.addPoint("red", -1, "Ils sont beau :)");
-client.addPoint("green", 5, "Ils sont beau :)");
 
 console.log("Application launched");
 
