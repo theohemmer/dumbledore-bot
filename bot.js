@@ -2,8 +2,18 @@ require('dotenv').config();
 const Dumbledore = require('./base/Dumbledore.js');
 const express = require('express');
 
+const fs = require('fs');
+const https = require('https');
+const http = require('http');
+
+var key = fs.readFileSync("/etc/letsencrypt/live/hemmer.dev/privkey.pem");
+var cert = fs.readFileSync("/etc/letsencrypt/live/hemmer.dev/fullchain.pem");
+
+var options = {key: key, cert: cert};
+
 const { URL } = require('url');
 const { ClientUser } = require('discord.js');
+const { request } = require('http');
 
 const webapp = express();
 const port = 80;
@@ -35,11 +45,16 @@ client.on('message', message => {
 
 client.login(process.env.DISCORDJS_BOT_TOKEN);
 
-webapp.use(express.static('html'));
+webapp.enable('trust proxy');
 
-webapp.listen(port, () => {
-    console.log(`Server is running at https://127.0.0.1:${port}/`);
+webapp.use(function(req, res, next) {
+    if (!req.secure) {
+        return res.redirect("https://" + req.headers.host + req.url);
+    }
+    next();
 });
+
+webapp.use(express.static('html'));
 
 webapp.get('/getpoint', (req, res) => {
     var obj = new Object();
@@ -76,3 +91,14 @@ client.addPoint("red", -1, "Ils sont beau :)");
 client.addPoint("green", 5, "Ils sont beau :)");
 
 console.log("Application launched");
+
+var serv = https.createServer(options, webapp);
+var httpserv = http.createServer(webapp);
+
+serv.listen(443, () => {
+    console.log(`Server is running at https://127.0.0.1:443/`);
+});
+
+httpserv.listen(80, () => {
+    console.log(`Server is running at https://127.0.0.1:80/`);
+});
