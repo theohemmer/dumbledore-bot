@@ -1,12 +1,74 @@
-<form method="post" action="/addpoint">
-    <label for="team_select">Choose a team:</label>
-    <select name="team" id="team_select">
-        <option value="red">Gryffindor (Red)</option>
-        <option value="green">Slytherin (Green)</option>
-        <option value="yellow">Hufflepuff (Yellow)</option>
-        <option value="blue">Ravenclaw (Blue)</option>
-    </select>
-    <input type="number" value='0' name="point"/>
-    <input type="text" placeholder="Why?" name="reason"/>
-    <input type="submit" value="Valider"/>
-</form>
+<html>
+    <head>
+        <title>Point Piscine - Add point</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+            h1 {
+                font-family: 'Robot', sans-serif;
+                color: white;
+                margin: 0 auto;
+                display: table-cell;
+                vertical-align: middle;
+                font-size: 30mm;
+            }
+            div {
+                width: 100%;
+                height: 10%;
+                text-align: center;
+                display: table;
+            }
+            body{
+                margin: 0;
+                background-color: #0a0744;
+                height: 100%;
+                width: 100%;
+            }
+            .password {
+                margin-bottom: 5mm;
+                width: 30%;
+                height: 5%;
+                font-size: 20mm;
+                border: 3px solid black;
+                border-radius: 5mm;
+                padding: 3 3 3 3;
+                font-family: 'Roboto', sans-serif;
+                text-align: center;
+            }
+            .submit {
+                width: 25%;
+                height: 5%;
+                font-family: 'Roboto', sans-serif;
+                border: 3px solid black;
+                border-radius: 5mm;
+                padding: 3 3 3 3;
+                font-size: 15mm;
+                text-align: center;
+            }
+            form {
+                margin-top: 8%;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Point Piscine - Add Point</h1>
+        </div>
+        <div>
+            <form method="post" action="/addpoint">
+                <select class="password" name="team" id="team_select">
+                    <option value="red">Gryffindor (Red)</option>
+                    <option value="green">Slytherin (Green)</option>
+                    <option value="yellow">Hufflepuff (Yellow)</option>
+                    <option value="blue">Ravenclaw (Blue)</option>
+                </select>
+                <div></div>
+                <input class="password" type="number" value='0' name="point"/>
+                <div></div>
+                <input class="password" type="text" placeholder="Why?" name="reason"/>
+                <div></div>
+                <input class="submit" type="submit" value="Valider"/>
+            </form>
+        </div>
+    </body>
+</html>
