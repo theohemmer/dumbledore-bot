@@ -62,6 +62,13 @@ function checknotif() {
                 $(".notif .notif_wrapper .content h1.team_name").html("Ravenclaw");
                 $(".notif .notif_wrapper .content img").attr("src", "Serdaigle.png");
             }
+            if (data.point < 0) {
+                var audio = new Audio('point_loss.wav');
+                audio.play();
+            } else {
+                var audio = new Audio('point_win.wav');
+                audio.play();
+            }
             $(".notif .notif_wrapper h2").html(data.reason);
             $(".notif").css({visibility: "visible", opacity: "1"});
             setTimeout(notifDisapear, 5000);
